@@ -6,24 +6,36 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func testCase(t *testing.T, valA, valB int) {
+func testSwapCase(t *testing.T, valA, valB int, f func(*int, *int)) {
 	a := valA
 	b := valB
 
-	Swap(&a, &b)
+	f(&a, &b)
 
 	assert.Equal(t, a, valB)
 	assert.Equal(t, b, valA)
 }
 
 func TestSwap(t *testing.T) {
-	testCase(t, 12, 22)
-	testCase(t, 11, 11)
-	testCase(t, 0, -1)
+	testSwapCase(t, 12, 22, Swap)
+	testSwapCase(t, 11, 11, Swap)
+	testSwapCase(t, 0, -1, Swap)
 }
 
 func Swap(a, b *int) {
 	t := *a
 	*a = *b
 	*b = t
+}
+
+func TestArithmeticSwap(t *testing.T) {
+	testSwapCase(t, 12, 22, ArithmeticSwap)
+	testSwapCase(t, 11, 11, ArithmeticSwap)
+	testSwapCase(t, 0, -1, ArithmeticSwap)
+}
+
+func ArithmeticSwap(a, b *int) {
+	*a = *a + *b
+	*b = *a - *b
+	*a = *a - *b
 }
