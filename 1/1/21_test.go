@@ -2,7 +2,7 @@ package shen
 
 import "fmt"
 
-func ExampleSquares() {
+func ExamplePrintSquares() {
 	PrintSquares(4)
 	// Output: 0 1 4 9 16
 }

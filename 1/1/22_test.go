@@ -2,14 +2,11 @@ package shen
 
 import "fmt"
 
-func ExampleFactorizePrimes_1() {
+func ExampleFactorizePrimes() {
 	FactorizePrimes(12)
-	// Output: 2 2 3
-}
-
-func ExampleFactorizePrimes_2() {
 	FactorizePrimes(1000)
-	// Output: 2 2 2 5 5 5
+
+	// Output: 2 2 3 2 2 2 5 5 5
 }
 
 func FactorizePrimes(n int) {
